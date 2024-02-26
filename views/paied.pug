@@ -1,0 +1,19 @@
+extends _base
+
+block append head
+    link(rel='stylesheet', href='/css/paied.css')
+
+block content
+    - if(success)
+        .container
+            h2.success Payment Successful! 🎉
+            h2= `${amount_cents/100} EGP`
+            p  Thank you for your purchase. Your transaction has been completed successfully.
+            p Your Payment ID : 
+                span= order
+            a(href="/applications") Go To Applications
+    - else 
+        .container
+            h2.failed Payment Failed! 💥
+            p  We're sorry, but there was an issue processing your payment. Please double-check your payment details and try again, or contact customer support for assistance.
+            a(href="/") Go To Home

@@ -1,0 +1,32 @@
+extends _base
+
+block append head
+    link(rel='stylesheet', href='/css/applications.css')
+
+
+block content 
+    .container
+        h2 Applications
+        table.fl-table
+            thead
+                tr
+                    th Application Id
+                    th Name
+                    th Email
+                    th Phone
+                    th Application Price
+                    th Payment Code
+                    th Payment Id
+                    th Payment Method
+            tbody
+                - const methods = {"card":"Credit Card","wallet":"Wallet"}
+                each application in applications
+                    tr
+                        td= application.id
+                        td= application.first_name +` `+application.last_name
+                        td= application.email
+                        td= application.phone
+                        td= application.amount
+                        td= application.payment_code
+                        td= (application.payment_id || `No Payment`)
+                        td= (application.payment_method ? methods[application.payment_method]  : `-`)

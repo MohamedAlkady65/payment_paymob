@@ -1,0 +1,22 @@
+extends _base
+
+block append head
+    link(rel='stylesheet', href='/css/apply.css')
+
+block content 
+
+    .container
+        form#form
+            h4 Payment
+            input#paymentCode(type='text', placeholder='Payment Code' value=`${paymentCode||""}` required)
+            h4 Payment Method
+            .input-group
+                input#payment-method-credit-card(type='radio', name='method', value='card' checked)
+                label(for='payment-method-credit-card') Credit Card
+                input#payment-method-wallet(type='radio', name='method', value='wallet')
+                label(for='payment-method-wallet') Vodafone Cash
+            button(type='submit') Pay
+
+    script( src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js")
+    script( src="/js/alerts.js")
+    script( src="/js/payment.js")

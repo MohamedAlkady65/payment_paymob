@@ -1,0 +1,22 @@
+extends _base
+
+block append head
+    link(rel='stylesheet', href='/css/apply.css')
+
+block content 
+    .container
+        form#form
+            .row
+                h4 Account
+                .input-group
+                    input#first-name(type='text', placeholder='Fisrt Name' required)
+                    input#last-name(type='text', placeholder='Last Name' required)
+                input#email(type='email', placeholder='Email Adress' required)
+                input#phone(type='text', placeholder='Phone' required)
+                input#amount(type='number', placeholder='Price' required)
+                button(type='submit') Apply
+ 
+    script( src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js")
+    script( src="/js/alerts.js")
+    script( src="/js/apply.js")
+

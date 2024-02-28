@@ -26,7 +26,7 @@ block content
                         td= application.first_name +` `+application.last_name
                         td= application.email
                         td= application.phone
-                        td= application.amount
+                        td= `${application.amount} EGP`
                         td= application.payment_code
                         td= (application.payment_id || `No Payment`)
                         td= (application.payment_method ? methods[application.payment_method]  : `-`)
